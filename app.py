@@ -1,5 +1,4 @@
 from flask import Flask
-from flask import Flask
 from flask import redirect, render_template, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import db

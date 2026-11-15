@@ -5,7 +5,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE reviews (
-	id INTEGER PRIMARY KEY
+	id INTEGER PRIMARY KEY,
 	title TEXT,
 	body TEXT,
 	user_id INTEGER REFERENCES users	
