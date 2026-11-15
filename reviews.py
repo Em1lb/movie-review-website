@@ -9,6 +9,15 @@ def get_reviews():
     return db.query(sql)
 
 def get_review(review_id):
-    sql = "SELECT id, title, body, user_id FROM reviews WHERE id = ?"
+    sql = """
+        SELECT r.id,
+               r.title,
+               r.body,
+               r.user_id,
+               u.username
+        FROM reviews r
+        JOIN users u ON u.id = r.user_id
+        WHERE r.id = ?
+    """
     result = db.query(sql, [review_id])
     return result[0] if result else None
