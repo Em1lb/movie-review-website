@@ -9,10 +9,10 @@
   <h1> Movie review website </h1>
   {% if session.username %}
   <p>
-    Olet kirjautunut nimellä {{ session.username }}, id-numerosi on {{ session.user_id }}
+    You're logged in as {{ session.username }}, your id is {{ session.user_id }}
   </p>
   <p>
-    <a href="/logout">Kirjaudu ulos</a>
+    <a href="/logout">Log out</a>
   </p>
   {% endif %}
   <p>
@@ -21,6 +21,12 @@
     <a href="/new_item">New review</a>
   </p>
   <h2> Reviews </h2>
+  
+  <ul>
+    {% for review in reviews %}
+    <li><a href="review/{{ review.id }}">{{ review.title }}</li>    
+    {% endfor %}
+  </ul>
 </body>
 
 </html>
