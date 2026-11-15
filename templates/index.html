@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Movie review website</title>
+</head>
+
+<body>
+  <h1> Movie review website </h1>
+  {% if session.username %}
+  <p>
+    Olet kirjautunut nimellä {{ session.username }}
+  </p>
+  <p>
+    <a href="/logout">Kirjaudu ulos</a>
+  </p>
+  {% endif %}
+  <p>
+    <a href="/login">Login</a><br>
+    <a href="/register">Register</a>
+  </p>
+</body>
+
+</html>
