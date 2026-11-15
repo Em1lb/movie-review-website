@@ -3,3 +3,10 @@ CREATE TABLE users (
     username TEXT UNIQUE,
     password_hash TEXT
 );
+
+CREATE TABLE reviews (
+	id INTEGER PRIMARY KEY
+	title TEXT,
+	body TEXT,
+	user_id INTEGER REFERENCES users	
+);
