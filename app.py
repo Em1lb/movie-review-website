@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import db
 import config
 import reviews
+import sqlite3
 
 app = Flask(__name__)
 app.secret_key = config.secret_key
@@ -32,6 +33,22 @@ def create_item():
     reviews.add_review(title, body, user_id)
 
     return redirect("/")
+
+@app.route("/edit_review/<int:review_id>")
+def edit_review(review_id):
+    review = reviews.get_review(review_id)
+    return render_template("edit_review.html", review = review)
+
+@app.route("/update_item", methods=["POST"])
+def update_item():
+    review_id = request.form["review_id"]
+    title = request.form["title"]
+    body = request.form["body"]
+    user_id = session["user_id"]
+
+    reviews.update_review(review_id, title, body)
+
+    return redirect("/review/" + str(review_id))
 
 @app.route("/register")
 def register():

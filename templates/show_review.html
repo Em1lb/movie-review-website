@@ -7,13 +7,19 @@
 
 <body>
   <h1>{{ review.title }}</h1>
+  {% if session.user_id == review.user_id %}
+  <p>
+    <a href="/edit_review/{{ review.id }}">Edit</a>
+  </p>
+  {% endif %}
   <p>
     {{ review.body }}
   </p>
   <p>
     Review by {{ review.username }}
+  </p>
   <p>
-    <a href="/">Return<a/>
+    <a href="/">Return</a>
+  </p>
 </body>
-
 </html>

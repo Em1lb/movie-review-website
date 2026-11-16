@@ -14,6 +14,7 @@ def get_review(review_id):
                r.title,
                r.body,
                r.user_id,
+               u.id user_id,
                u.username
         FROM reviews r
         JOIN users u ON u.id = r.user_id
@@ -21,3 +22,12 @@ def get_review(review_id):
     """
     result = db.query(sql, [review_id])
     return result[0] if result else None
+
+def update_review(review_id, title, body):
+    sql = """
+        UPDATE reviews
+        SET title = ?,
+            body = ?
+        WHERE id = ?
+    """
+    db.execute(sql, [title, body, review_id])
