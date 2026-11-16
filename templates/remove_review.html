@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Remove review</title>
+</head>
+
+<body>
+  <h1>Remove review</h1>
+  <p>Are you sure you want to remove the following review:</p>
+  <p>{{ review.title }}</p>
+  <form action="/remove_review/{{ review.id }}" method="post">
+    <input type="submit" name="remove" value="Remove the review">
+    <input type="submit" name="back" value="Cancel">
+  </form>
+</body>
+
+</html>
