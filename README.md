@@ -11,4 +11,21 @@ Website for reviewing movies
 	* Genre
 	* Language
 - Users can comment on other users' reviews. 
-	
+
+## Testing the application
+
+1. Clone the repository and move into its directory
+2. Create a virtual environment and install Flask:
+   ```
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install flask
+   ```
+3. Create the database:
+   ```
+   sqlite3 database.db < schema.sql
+   ```
+4. Start the application:
+   ```
+   flask run
+   ```
